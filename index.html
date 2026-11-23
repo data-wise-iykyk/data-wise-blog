@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data-Wise | Visual Stories & Charts</title>
+  <meta name="description" content="Bite-sized visual journalism, charts, and data stories." />
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f5f7; color: #111827; margin: 0; padding: 0; }
+    header { background: #121418; color: #ffffff; padding: 48px 20px; text-align: center; border-bottom: 3px solid #f59e0b; }
+    header h1 { margin: 0; font-size: 2.2rem; letter-spacing: -0.5px; }
+    header p { color: #9ca3af; margin-top: 8px; font-size: 1.05rem; }
+    .grid { max-width: 960px; margin: 36px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; }
+    .card { background: #ffffff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: transform 0.15s ease, box-shadow 0.15s ease; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .thumb { background: #121418; padding: 20px; height: 170px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+    .bar-row { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; color: #e5e7eb; font-weight: 600; }
+    .bar-label { width: 92px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bar { height: 12px; border-radius: 3px; }
+    .card-body { padding: 20px; }
+    .tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #d97706; letter-spacing: 0.6px; }
+    .card h2 { font-size: 1.15rem; margin: 8px 0; line-height: 1.35; }
+    .card p { font-size: 0.9rem; color: #4b5563; margin: 0 0 12px; line-height: 1.45; }
+    .date { font-size: 0.8rem; color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Data-Wise</h1>
+    <p>Complex data turned into clear, visual stories.</p>
+  </header>
+
+  <main class="grid">
+    <!-- ARTICLE 1 -->
+    <a class="card" href="longest_lasting_cars_india.html">
+      <div class="thumb">
+        <div class="bar-row"><span class="bar-label">Toyota Innova</span><div class="bar" style="width: 58%; background: #f59e0b;"></div><span>46.5%</span></div>
+        <div class="bar-row"><span class="bar-label">Toyota Fortuner</span><div class="bar" style="width: 50%; background: #f59e0b;"></div><span>40.2%</span></div>
+        <div class="bar-row"><span class="bar-label">Corolla Altis</span><div class="bar" style="width: 42%; background: #f59e0b;"></div><span>33.8%</span></div>
+        <div class="bar-row"><span class="bar-label">Mahindra Bolero</span><div class="bar" style="width: 39%; background: #ef4444;"></div><span>31.4%</span></div>
+      </div>
+      <div class="card-body">
+        <span class="tag">Automotive · India</span>
+        <h2>Ranked: The Vehicles Most Likely to Last 3,00,000 km in India</h2>
+        <p>Which cars survive Indian highways, monsoons, and city traffic past the 3-lakh-km mark?</p>
+        <div class="date">November 2026</div>
+      </div>
+    </a>
+  </main>
+</body>
+</html>
