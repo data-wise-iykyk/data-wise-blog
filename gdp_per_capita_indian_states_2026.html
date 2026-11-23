@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranked: India's Richest States by GDP per Capita (2025–26) | Data-Wise</title>
+  <meta name="description" content="Just like Europe's microstates outrank Germany on per-person output, Sikkim, Goa, and Delhi lead India's GDP per capita rankings—with a 10x gap from top to bottom." />
+  <meta property="og:title" content="Ranked: India's Richest States by GDP per Capita (2025–26)" />
+  <meta property="og:description" content="Sikkim (₹8.58L) and Goa (₹7.38L) top India's per-capita GDP rankings, while Karnataka leads all large states." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f5f7;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .top-nav {
+      background: #121418;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-bottom: 2px solid #f59e0b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-nav a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    .category {
+      display: inline-block;
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.35rem;
+      line-height: 1.2;
+      margin: 0 0 14px;
+      color: #0f172a;
+    }
+    .deck {
+      font-size: 1.15rem;
+      color: #4b5563;
+      margin: 0 0 16px;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .takeaways {
+      background: #ffffff;
+      border-left: 4px solid #f59e0b;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .takeaways h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #111827;
+    }
+    .takeaways ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .takeaways li {
+      margin-bottom: 8px;
+    }
+    .infographic {
+      background: #121418;
+      color: #f9fafb;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin-bottom: 36px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    .info-header {
+      border-bottom: 1px solid #272b33;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .info-header h2 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      color: #ffffff;
+    }
+    .info-header p {
+      margin: 0;
+      color: #9ca3af;
+      font-size: 0.92rem;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 0.8rem;
+      color: #d1d5db;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .chart-wrapper {
+      position: relative;
+    }
+    .bar-item {
+      display: grid;
+      grid-template-columns: 28px 145px 1fr 125px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 0.84rem;
+    }
+    .bar-rank {
+      color: #6b7280;
+      font-weight: 700;
+      text-align: right;
+    }
+    .bar-name {
+      font-weight: 600;
+      color: #f3f4f6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bar-track {
+      background: #1f242d;
+      height: 16px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+    .bar-val {
+      font-weight: 700;
+      color: #ffffff;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .usd-sub {
+      color: #9ca3af;
+      font-weight: 400;
+      font-size: 0.76rem;
+    }
+    .avg-callout {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #1c2029;
+      border: 1px dashed #f59e0b;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.86rem;
+    }
+    .info-footer {
+      margin-top: 16px;
+      font-size: 0.76rem;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 28px 0 36px;
+    }
+    .insight-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-top: 3px solid #3b82f6;
+    }
+    .insight-card h4 {
+      margin: 10px 0 8px;
+      font-size: 1.05rem;
+    }
+    .insight-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .editorial h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      margin: 32px 0 12px;
+      color: #0f172a;
+    }
+    .editorial p {
+      margin: 0 0 16px;
+      color: #374151;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-top: 28px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th {
+      background: #121418;
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 14px;
+      font-weight: 600;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    tr:hover {
+      background: #f9fafb;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .note-cell {
+      color: #4b5563;
+      font-size: 0.82rem;
+    }
+    .bottom-nav {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .bottom-nav a {
+      display: inline-block;
+      background: #121418;
+      color: #f59e0b;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .bar-item { grid-template-columns: 22px 105px 1fr 100px; font-size: 0.76rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">← Data-Wise Home</a>
+    <span>India Economy · Regional Rankings</span>
+  </nav>
+
+  <main class="container">
+    <span class="category">Economy &amp; GDP · India</span>
+    <h1>Ranked: India’s Richest States by GDP per Capita (2025–26)</h1>
+    <p class="deck">Just as Europe’s microstates outrank Germany on per-person output, Sikkim, Goa, and Delhi top India’s per-capita GDP rankings—while Karnataka leads all large states.</p>
+    <div class="meta">Published November 2026 · Adapted for India from Visual Capitalist’s European GDP per Capita framework · Source: MoSPI / State Directorates of Economics &amp; Statistics (FY 2025–26 &amp; latest revised estimates)</div>
+
+    <section class="takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li><strong>Sikkim leads all Indian states</strong> with a nominal GSDP per capita of <strong>₹8,57,560 ($9,125)</strong>—more than <strong>3.4 times</strong> the national average of ₹2,51,393 ($2,675).</li>
+        <li><strong>The 10.1x North-South / East-West divide:</strong> Top-ranked Sikkim generates over 10 times more economic output per resident than bottom-ranked <strong>Bihar (₹84,925 / $904)</strong>.</li>
+        <li><strong>Large-state powerhouse:</strong> Among states with over 30 million people, <strong>Karnataka (₹4,77,033)</strong>, <strong>Telangana (₹5,09,545)</strong>, and <strong>Tamil Nadu (₹4,55,650)</strong> outpace larger economies like Maharashtra (₹3,94,477) and Uttar Pradesh (₹1,46,938).</li>
+      </ul>
+    </section>
+
+    <section class="infographic" id="hero-infographic">
+      <div class="info-header">
+        <h2>India’s States &amp; UTs Ranked by Per Capita GSDP (2025–26)</h2>
+        <p>Nominal Gross State Domestic Product per person at current prices (in ₹ Lakhs &amp; USD equivalent)</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#10b981;"></span> Northeast / Small</div>
+        <div class="legend-item"><span class="dot" style="background:#f59e0b;"></span> West</div>
+        <div class="legend-item"><span class="dot" style="background:#3b82f6;"></span> North &amp; NCR</div>
+        <div class="legend-item"><span class="dot" style="background:#8b5cf6;"></span> South</div>
+        <div class="legend-item"><span class="dot" style="background:#ef4444;"></span> East &amp; Central</div>
+      </div>
+
+      <div class="chart-wrapper">
+        
+    <div class="bar-item">
+      <div class="bar-rank">1</div>
+      <div class="bar-name">Sikkim</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 100.0%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹8.58L <span class="usd-sub">($9,125)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">2</div>
+      <div class="bar-name">Goa</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 86.0%; background: #f59e0b;"></div>
+      </div>
+      <div class="bar-val">₹7.38L <span class="usd-sub">($8,142)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">3</div>
+      <div class="bar-name">Delhi (UT)</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 69.2%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹5.93L <span class="usd-sub">($6,310)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">4</div>
+      <div class="bar-name">Chandigarh (UT)</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 63.5%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹5.45L <span class="usd-sub">($6,010)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">5</div>
+      <div class="bar-name">Telangana</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 59.4%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹5.10L <span class="usd-sub">($5,438)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">6</div>
+      <div class="bar-name">Karnataka</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 55.6%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹4.77L <span class="usd-sub">($5,076)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">7</div>
+      <div class="bar-name">Tamil Nadu</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 53.1%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹4.56L <span class="usd-sub">($4,849)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">8</div>
+      <div class="bar-name">Haryana</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 51.5%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹4.41L <span class="usd-sub">($4,695)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">9</div>
+      <div class="bar-name">Gujarat</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 47.3%; background: #f59e0b;"></div>
+      </div>
+      <div class="bar-val">₹4.06L <span class="usd-sub">($4,317)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">10</div>
+      <div class="bar-name">Maharashtra</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 46.0%; background: #f59e0b;"></div>
+      </div>
+      <div class="bar-val">₹3.94L <span class="usd-sub">($4,197)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">11</div>
+      <div class="bar-name">Kerala</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 40.4%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹3.46L <span class="usd-sub">($3,823)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">12</div>
+      <div class="bar-name">Himachal Pradesh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 39.7%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹3.41L <span class="usd-sub">($3,627)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">13</div>
+      <div class="bar-name">Andhra Pradesh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 38.2%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹3.28L <span class="usd-sub">($3,485)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">14</div>
+      <div class="bar-name">Puducherry (UT)</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 37.7%; background: #8b5cf6;"></div>
+      </div>
+      <div class="bar-val">₹3.24L <span class="usd-sub">($3,443)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">15</div>
+      <div class="bar-name">Arunachal Pradesh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 36.1%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹3.10L <span class="usd-sub">($3,298)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">16</div>
+      <div class="bar-name">Uttarakhand</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 34.5%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹2.96L <span class="usd-sub">($3,265)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">17</div>
+      <div class="bar-name">Mizoram</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 33.5%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹2.87L <span class="usd-sub">($3,168)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">18</div>
+      <div class="bar-name">Punjab</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 32.6%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹2.79L <span class="usd-sub">($2,973)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">19</div>
+      <div class="bar-name">Tripura</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 28.0%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹2.40L <span class="usd-sub">($2,554)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">20</div>
+      <div class="bar-name">Rajasthan</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 26.3%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹2.25L <span class="usd-sub">($2,396)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">21</div>
+      <div class="bar-name">Odisha</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 24.5%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹2.10L <span class="usd-sub">($2,236)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">22</div>
+      <div class="bar-name">Jammu & Kashmir (UT)</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 24.0%; background: #3b82f6;"></div>
+      </div>
+      <div class="bar-val">₹2.06L <span class="usd-sub">($2,194)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">23</div>
+      <div class="bar-name">Assam</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 23.8%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹2.04L <span class="usd-sub">($2,168)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">24</div>
+      <div class="bar-name">Chhattisgarh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 23.7%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹2.03L <span class="usd-sub">($2,162)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">25</div>
+      <div class="bar-name">West Bengal</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 23.1%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹1.98L <span class="usd-sub">($2,111)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">26</div>
+      <div class="bar-name">Nagaland</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 22.4%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹1.92L <span class="usd-sub">($2,046)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">27</div>
+      <div class="bar-name">Madhya Pradesh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 22.4%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹1.92L <span class="usd-sub">($2,041)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">28</div>
+      <div class="bar-name">Meghalaya</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 22.2%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹1.90L <span class="usd-sub">($2,026)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">29</div>
+      <div class="bar-name">Manipur</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 21.1%; background: #10b981;"></div>
+      </div>
+      <div class="bar-val">₹1.81L <span class="usd-sub">($1,924)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">30</div>
+      <div class="bar-name">Uttar Pradesh</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 17.1%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹1.47L <span class="usd-sub">($1,563)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">31</div>
+      <div class="bar-name">Jharkhand</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 16.1%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹1.38L <span class="usd-sub">($1,471)</span></div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-rank">32</div>
+      <div class="bar-name">Bihar</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 9.9%; background: #ef4444;"></div>
+      </div>
+      <div class="bar-val">₹0.85L <span class="usd-sub">($904)</span></div>
+    </div>
+    
+      </div>
+
+      <div class="avg-callout">
+        <span>🇮🇳 <strong>India National Average:</strong> ₹2,51,393 ($2,675) per person</span>
+        <span><strong>18</strong> of 32 states/UTs sit above the national average</span>
+      </div>
+
+      <div class="info-footer">
+        <span>Source: MoSPI National Accounts &amp; State Economic Surveys (FY26 / latest available FY25 for Goa, Chandigarh, Kerala, Uttarakhand, Mizoram)</span>
+        <span>Data-Wise · Visual Journalism</span>
+      </div>
+    </section>
+
+    <section class="cards-grid">
+      <div class="insight-card" style="border-top-color:#10b981;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M3 20h18L12 4z"/></svg>
+        <h4>1. The "Liechtenstein Effect"</h4>
+        <p>Like Liechtenstein and Luxembourg in Europe, tiny populations paired with specialized industries (pharma in Sikkim, tourism in Goa) push per-capita output above ₹7.3 lakh.</p>
+      </div>
+      <div class="insight-card" style="border-top-color:#8b5cf6;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <h4>2. Southern Tech &amp; Factory Belt</h4>
+        <p>All five Southern states rank in the top 13. Telangana, Karnataka, and Tamil Nadu combine high-value IT exports with dense manufacturing corridors.</p>
+      </div>
+      <div class="insight-card" style="border-top-color:#ef4444;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <h4>3. Total GDP vs. Per-Person Reality</h4>
+        <p>Maharashtra and Uttar Pradesh rank #1 and #3 in total state GDP, yet rank #10 and #30 per capita because their output is shared across 125M–240M+ residents.</p>
+      </div>
+    </section>
+
+    <article class="editorial">
+      <h2>Why Small States and City-States Top the Chart</h2>
+      <p>In Visual Capitalist’s European ranking, microstates like Liechtenstein ($230,417) and Luxembourg ($155,733) tower over Germany ($65,699) because cross-border commuters and concentrated high-value sectors divide into a small resident population. India exhibits the exact same structural pattern.</p>
+      <p><strong>Sikkim (₹8.58 lakh)</strong> and <strong>Goa (₹7.38 lakh)</strong> lead the country by wide margins. Sikkim’s pharmaceutical manufacturing hubs and hydroelectric capacity serve a population of under 7 lakh people, while Goa’s tourism, hospitality, and coastal industrial base support roughly 16 lakh residents. Similarly, <strong>Delhi (₹5.93 lakh)</strong> and <strong>Chandigarh (₹5.45 lakh)</strong> benefit from daily commuter inflows from neighboring Haryana, Uttar Pradesh, and Punjab—mirroring Luxembourg’s cross-border workforce dynamic.</p>
+
+      <h2>The Southern and Western Industrial Engine</h2>
+      <p>When filtering out small states and union territories to look at major economies (populations above 3 crore), <strong>Telangana (₹5.10 lakh)</strong>, <strong>Karnataka (₹4.77 lakh)</strong>, and <strong>Tamil Nadu (₹4.56 lakh)</strong> lead India, closely followed by <strong>Haryana (₹4.41 lakh)</strong> and <strong>Gujarat (₹4.06 lakh)</strong>.</p>
+      <p>Karnataka’s trajectory is powered by Bengaluru’s global capability centers (GCCs), semiconductor design, and software exports, while Tamil Nadu and Gujarat combine services with deep automotive, electronics, and petrochemical manufacturing ecosystems.</p>
+
+      <h2>The Population Denominator in India’s Heartland</h2>
+      <p>At the bottom of the table, <strong>Bihar (₹84,925 / $904)</strong> remains the only Indian state below $1,000 per capita—roughly one-third of the national average and less than one-tenth of Sikkim’s output. Neighboring <strong>Jharkhand (₹1.38 lakh)</strong> and <strong>Uttar Pradesh (₹1.47 lakh)</strong> also sit near the bottom despite massive total economic scale, underscoring how rapidly growing populations and lower industrial density dilute per-person figures.</p>
+      <p>Just as Purchasing Power Parity (PPP) narrows the living-standard gap between Poland and Spain in Europe, lower housing and food costs in states like Uttar Pradesh, Madhya Pradesh, and Odisha cushion real household consumption—even as nominal income disparities remain India’s defining economic challenge.</p>
+    </article>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>State / Union Territory</th>
+            <th>Region</th>
+            <th>Per Capita GSDP (₹)</th>
+            <th>USD ($)</th>
+            <th>vs. India Avg</th>
+            <th>Key Economic Driver</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>#1</strong></td>
+      <td><strong>Sikkim</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹857,560</strong></td>
+      <td>$9,125</td>
+      <td>3.41x</td>
+      <td class="note-cell">Pharma hubs, hydropower & low population base</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#2</strong></td>
+      <td><strong>Goa</strong></td>
+      <td><span class="badge" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b55;">West</span></td>
+      <td><strong>₹737,738</strong></td>
+      <td>$8,142</td>
+      <td>2.93x</td>
+      <td class="note-cell">Tourism, hospitality & high-value pharma/manufacturing</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#3</strong></td>
+      <td><strong>Delhi (UT)</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹593,071</strong></td>
+      <td>$6,310</td>
+      <td>2.36x</td>
+      <td class="note-cell">Services capital, corporate HQs & NCR commuter effect</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#4</strong></td>
+      <td><strong>Chandigarh (UT)</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹544,581</strong></td>
+      <td>$6,010</td>
+      <td>2.17x</td>
+      <td class="note-cell">Dual-state administrative hub & high-income services</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#5</strong></td>
+      <td><strong>Telangana</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹509,545</strong></td>
+      <td>$5,438</td>
+      <td>2.03x</td>
+      <td class="note-cell">Hyderabad IT, global capability centers & pharma</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#6</strong></td>
+      <td><strong>Karnataka</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹477,033</strong></td>
+      <td>$5,076</td>
+      <td>1.90x</td>
+      <td class="note-cell">Bengaluru tech & R&D engine; #1 among large states</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#7</strong></td>
+      <td><strong>Tamil Nadu</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹455,650</strong></td>
+      <td>$4,849</td>
+      <td>1.81x</td>
+      <td class="note-cell">Diversified manufacturing, autos, electronics & services</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#8</strong></td>
+      <td><strong>Haryana</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹441,216</strong></td>
+      <td>$4,695</td>
+      <td>1.76x</td>
+      <td class="note-cell">Gurugram corporate hub & industrial auto belt</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#9</strong></td>
+      <td><strong>Gujarat</strong></td>
+      <td><span class="badge" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b55;">West</span></td>
+      <td><strong>₹405,718</strong></td>
+      <td>$4,317</td>
+      <td>1.61x</td>
+      <td class="note-cell">Petrochemicals, ports, textiles & heavy industry</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#10</strong></td>
+      <td><strong>Maharashtra</strong></td>
+      <td><span class="badge" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b55;">West</span></td>
+      <td><strong>₹394,477</strong></td>
+      <td>$4,197</td>
+      <td>1.57x</td>
+      <td class="note-cell">Largest total state GDP, moderated by large rural population</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#11</strong></td>
+      <td><strong>Kerala</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹346,436</strong></td>
+      <td>$3,823</td>
+      <td>1.38x</td>
+      <td class="note-cell">Remittance-fueled consumption, tourism & services</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#12</strong></td>
+      <td><strong>Himachal Pradesh</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹340,848</strong></td>
+      <td>$3,627</td>
+      <td>1.36x</td>
+      <td class="note-cell">Pharma manufacturing (Baddi), horticulture & hydropower</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#13</strong></td>
+      <td><strong>Andhra Pradesh</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹327,509</strong></td>
+      <td>$3,485</td>
+      <td>1.30x</td>
+      <td class="note-cell">Agri-processing, ports & emerging coastal corridors</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#14</strong></td>
+      <td><strong>Puducherry (UT)</strong></td>
+      <td><span class="badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">South</span></td>
+      <td><strong>₹323,561</strong></td>
+      <td>$3,443</td>
+      <td>1.29x</td>
+      <td class="note-cell">Tourism, light manufacturing & coastal trade</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#15</strong></td>
+      <td><strong>Arunachal Pradesh</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹309,994</strong></td>
+      <td>$3,298</td>
+      <td>1.23x</td>
+      <td class="note-cell">Public infrastructure investment & small population</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#16</strong></td>
+      <td><strong>Uttarakhand</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹296,012</strong></td>
+      <td>$3,265</td>
+      <td>1.18x</td>
+      <td class="note-cell">Industrial corridors (Haridwar/Pantnagar) & tourism</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#17</strong></td>
+      <td><strong>Mizoram</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹287,097</strong></td>
+      <td>$3,168</td>
+      <td>1.14x</td>
+      <td class="note-cell">Services-led economy & high literacy</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#18</strong></td>
+      <td><strong>Punjab</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹279,398</strong></td>
+      <td>$2,973</td>
+      <td>1.11x</td>
+      <td class="note-cell">High agricultural productivity, slowing industrial share</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#19</strong></td>
+      <td><strong>Tripura</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹239,988</strong></td>
+      <td>$2,554</td>
+      <td>0.95x</td>
+      <td class="note-cell">Natural gas, rubber & border trade growth</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#20</strong></td>
+      <td><strong>Rajasthan</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹225,200</strong></td>
+      <td>$2,396</td>
+      <td>0.90x</td>
+      <td class="note-cell">Tourism, renewables, cement & mining</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#21</strong></td>
+      <td><strong>Odisha</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹210,186</strong></td>
+      <td>$2,236</td>
+      <td>0.84x</td>
+      <td class="note-cell">Rapid mineral, steel & port-led catch-up growth</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#22</strong></td>
+      <td><strong>Jammu & Kashmir (UT)</strong></td>
+      <td><span class="badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">North / NCR</span></td>
+      <td><strong>₹206,189</strong></td>
+      <td>$2,194</td>
+      <td>0.82x</td>
+      <td class="note-cell">Horticulture, tourism & public capex</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#23</strong></td>
+      <td><strong>Assam</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹203,760</strong></td>
+      <td>$2,168</td>
+      <td>0.81x</td>
+      <td class="note-cell">Tea, refining & expanding Northeast connectivity</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#24</strong></td>
+      <td><strong>Chhattisgarh</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹203,196</strong></td>
+      <td>$2,162</td>
+      <td>0.81x</td>
+      <td class="note-cell">Coal, power generation & steel production</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#25</strong></td>
+      <td><strong>West Bengal</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹198,451</strong></td>
+      <td>$2,111</td>
+      <td>0.79x</td>
+      <td class="note-cell">Services & MSME base, trailing western peers</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#26</strong></td>
+      <td><strong>Nagaland</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹192,282</strong></td>
+      <td>$2,046</td>
+      <td>0.76x</td>
+      <td class="note-cell">Public administration & agrarian economy</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#27</strong></td>
+      <td><strong>Madhya Pradesh</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹191,839</strong></td>
+      <td>$2,041</td>
+      <td>0.76x</td>
+      <td class="note-cell">Strong agricultural output, lower industrial density</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#28</strong></td>
+      <td><strong>Meghalaya</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹190,414</strong></td>
+      <td>$2,026</td>
+      <td>0.76x</td>
+      <td class="note-cell">Tourism, cement & services</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#29</strong></td>
+      <td><strong>Manipur</strong></td>
+      <td><span class="badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">Small / Northeast</span></td>
+      <td><strong>₹180,787</strong></td>
+      <td>$1,924</td>
+      <td>0.72x</td>
+      <td class="note-cell">Handloom, trade & public sector services</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#30</strong></td>
+      <td><strong>Uttar Pradesh</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹146,938</strong></td>
+      <td>$1,563</td>
+      <td>0.58x</td>
+      <td class="note-cell">India's 3rd-largest total economy, divided across 240M+ people</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#31</strong></td>
+      <td><strong>Jharkhand</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹138,271</strong></td>
+      <td>$1,471</td>
+      <td>0.55x</td>
+      <td class="note-cell">Mineral-rich heartland with low per-capita value capture</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#32</strong></td>
+      <td><strong>Bihar</strong></td>
+      <td><span class="badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">East / Central</span></td>
+      <td><strong>₹84,925</strong></td>
+      <td>$904</td>
+      <td>0.34x</td>
+      <td class="note-cell">Lowest per-capita output (~1/3 of national average)</td>
+    </tr>
+    
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottom-nav">
+      <a href="index.html">← Back to All Data-Wise Stories</a>
+    </div>
+  </main>
+
+</body>
+</html>

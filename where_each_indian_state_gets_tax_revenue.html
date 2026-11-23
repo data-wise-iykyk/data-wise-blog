@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where Each Indian State Gets Its Tax Revenue From | Data-Wise</title>
+  <meta name="description" content="Unlike U.S. states that rely on property and income taxes, Indian states depend on SGST, fuel VAT, liquor excise, and property stamp duties. See the full state-by-state breakdown." />
+  <meta property="og:title" content="Where Each Indian State Gets Its Tax Revenue From" />
+  <meta property="og:description" content="SGST, fuel VAT, alcohol excise, and stamp duty: how India's 20 largest states fund their budgets." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f5f7;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .top-nav {
+      background: #121418;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-bottom: 2px solid #f59e0b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-nav a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .top-nav span {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 36px 28px 56px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .category-tag {
+      display: inline-block;
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.35rem;
+      line-height: 1.18;
+      margin: 0 0 14px;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+    .deck {
+      font-size: 1.15rem;
+      color: #4b5563;
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+    .meta-bar {
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 10px 0;
+      margin-bottom: 28px;
+    }
+    .takeaways {
+      background: #f8fafc;
+      border-left: 4px solid #f59e0b;
+      padding: 18px 22px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 32px;
+    }
+    .takeaways h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #0f172a;
+    }
+    .takeaways ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .takeaways li {
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+    /* Dark Mode Hero Infographic */
+    .infographic-card {
+      background: #121418;
+      color: #f9fafb;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 32px 0;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    .info-header {
+      border-bottom: 1px solid #262a33;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    .info-header h2 {
+      margin: 0 0 6px;
+      font-size: 1.45rem;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .info-header p {
+      margin: 0;
+      color: #9ca3af;
+      font-size: 0.92rem;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 0.82rem;
+      color: #d1d5db;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+    .state-meta {
+      width: 215px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      font-size: 0.84rem;
+    }
+    .rank {
+      width: 22px;
+      color: #6b7280;
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+    .state-name {
+      font-weight: 700;
+      color: #f3f4f6;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sotr-val {
+      color: #9ca3af;
+      font-size: 0.75rem;
+      margin-left: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+    .stacked-bar {
+      flex: 1;
+      height: 24px;
+      background: #1f242d;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+    }
+    .seg {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .seg-sgst { background: #3b82f6; }
+    .seg-vat { background: #f59e0b; color: #111827; text-shadow: none; }
+    .seg-excise { background: #ec4899; }
+    .seg-stamp { background: #10b981; }
+    .seg-other { background: #6b7280; }
+    .info-footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid #262a33;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    /* Archetype SVG Cards */
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin: 28px 0;
+    }
+    .arch-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      background: #fafafa;
+    }
+    .arch-card h4 {
+      margin: 10px 0 6px;
+      font-size: 1.05rem;
+      color: #111827;
+    }
+    .arch-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #4b5563;
+    }
+    h2.section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      margin: 34px 0 12px;
+      color: #0f172a;
+    }
+    p.body-text {
+      margin: 0 0 16px;
+      color: #374151;
+      font-size: 1.02rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 20px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+    th {
+      background: #121418;
+      color: #ffffff;
+      padding: 11px 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      font-variant-numeric: tabular-nums;
+    }
+    tr:nth-child(even) { background: #f9fafb; }
+    .badge-sgst {
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .bottom-nav {
+      margin-top: 44px;
+      padding-top: 22px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+    }
+    .bottom-btn {
+      display: inline-block;
+      background: #121418;
+      color: #f59e0b;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .state-meta { width: 155px; font-size: 0.78rem; }
+      .sotr-val { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">← Data-Wise Home</a>
+    <span>Economy · India Fiscal Series</span>
+  </nav>
+
+  <article class="container">
+    <span class="category-tag">Economy &amp; Public Finance · India</span>
+    <h1>Where Each Indian State Gets Its Tax Revenue From</h1>
+    <p class="deck">While U.S. states lean heavily on property and income taxes, Indian states cannot tax personal wages—turning consumption, fuel, alcohol, and real estate deals into their financial lifelines.</p>
+    <div class="meta-bar">
+      Published November 2026 &nbsp;·&nbsp; Adapted from Visual Capitalist &nbsp;·&nbsp; Data: RBI State Finances &amp; State Budget Estimates
+    </div>
+
+    <div class="takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li><strong>SGST is the #1 revenue engine across every major Indian state</strong>, generating between <strong>35% and 51%</strong> of States' Own Tax Revenue (SOTR).</li>
+        <li><strong>Fuel &amp; Liquor fill the non-GST gap:</strong> Because petrol, diesel, and alcohol remain outside GST, Sales Tax/VAT and State Excise together supply <strong>30% to 44%</strong> of tax collections in states like Tamil Nadu, Telangana, and Uttar Pradesh.</li>
+        <li><strong>Dry states show sharp fiscal trade-offs:</strong> Alcohol prohibition leaves <strong>Gujarat (0.2%)</strong> and <strong>Bihar (0.0%)</strong> with virtually zero excise income, forcing higher reliance on SGST, fuel VAT, and industrial/vehicle levies.</li>
+        <li><strong>Real estate booms boost stamp duties:</strong> Rapidly urbanizing states like <strong>Maharashtra (15.8%)</strong>, <strong>Haryana (13.8%)</strong>, and <strong>Karnataka (12.8%)</strong> earn massive shares from property registration fees.</li>
+      </ul>
+    </div>
+
+    <!-- HERO INFOGRAPHIC -->
+    <section class="infographic-card" id="hero-infographic">
+      <div class="info-header">
+        <h2>Anatomy of Indian States’ Own Tax Revenue (SOTR)</h2>
+        <p>Percentage share of each state's self-raised tax collections across India's 20 largest economies (excludes central tax devolution &amp; grants)</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#3b82f6;"></span>State GST (SGST)</div>
+        <div class="legend-item"><span class="dot" style="background:#f59e0b;"></span>Sales Tax / VAT (Fuel &amp; Liquor)</div>
+        <div class="legend-item"><span class="dot" style="background:#ec4899;"></span>State Excise (Alcohol)</div>
+        <div class="legend-item"><span class="dot" style="background:#10b981;"></span>Stamps &amp; Registration</div>
+        <div class="legend-item"><span class="dot" style="background:#6b7280;"></span>Motor Vehicle &amp; Other Taxes</div>
+      </div>
+
+      
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">1</span>
+        <span class="state-name">Maharashtra</span>
+        <span class="sotr-val">₹3.54 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Maharashtra: SGST 42.1%, Fuel/VAT 17.8%, Excise 7.6%, Stamps 15.8%, Other 16.7%">
+        <div class="seg seg-sgst" style="width:42.1%;">42%</div>
+        <div class="seg seg-vat" style="width:17.8%;">18%</div>
+        <div class="seg seg-excise" style="width:7.6%;"></div>
+        <div class="seg seg-stamp" style="width:15.8%;">16%</div>
+        <div class="seg seg-other" style="width:16.7%;">17%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">2</span>
+        <span class="state-name">Uttar Pradesh</span>
+        <span class="sotr-val">₹2.62 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Uttar Pradesh: SGST 41.5%, Fuel/VAT 15.2%, Excise 21.8%, Stamps 12.4%, Other 9.1%">
+        <div class="seg seg-sgst" style="width:41.5%;">42%</div>
+        <div class="seg seg-vat" style="width:15.2%;">15%</div>
+        <div class="seg seg-excise" style="width:21.8%;">22%</div>
+        <div class="seg seg-stamp" style="width:12.4%;">12%</div>
+        <div class="seg seg-other" style="width:9.1%;"></div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">3</span>
+        <span class="state-name">Karnataka</span>
+        <span class="sotr-val">₹1.90 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Karnataka: SGST 43.2%, Fuel/VAT 13.5%, Excise 19.6%, Stamps 12.8%, Other 10.9%">
+        <div class="seg seg-sgst" style="width:43.2%;">43%</div>
+        <div class="seg seg-vat" style="width:13.5%;">14%</div>
+        <div class="seg seg-excise" style="width:19.6%;">20%</div>
+        <div class="seg seg-stamp" style="width:12.8%;">13%</div>
+        <div class="seg seg-other" style="width:10.9%;">11%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">4</span>
+        <span class="state-name">Tamil Nadu</span>
+        <span class="sotr-val">₹1.95 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Tamil Nadu: SGST 37.8%, Fuel/VAT 33.4%, Excise 6.2%, Stamps 11.4%, Other 11.2%">
+        <div class="seg seg-sgst" style="width:37.8%;">38%</div>
+        <div class="seg seg-vat" style="width:33.4%;">33%</div>
+        <div class="seg seg-excise" style="width:6.2%;"></div>
+        <div class="seg seg-stamp" style="width:11.4%;">11%</div>
+        <div class="seg seg-other" style="width:11.2%;">11%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">5</span>
+        <span class="state-name">Gujarat</span>
+        <span class="sotr-val">₹1.52 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Gujarat: SGST 46.8%, Fuel/VAT 24.5%, Excise 0.2%, Stamps 11.9%, Other 16.6%">
+        <div class="seg seg-sgst" style="width:46.8%;">47%</div>
+        <div class="seg seg-vat" style="width:24.5%;">24%</div>
+        <div class="seg seg-excise" style="width:0.2%;"></div>
+        <div class="seg seg-stamp" style="width:11.9%;">12%</div>
+        <div class="seg seg-other" style="width:16.6%;">17%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">6</span>
+        <span class="state-name">Telangana</span>
+        <span class="sotr-val">₹1.38 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Telangana: SGST 36.4%, Fuel/VAT 24.8%, Excise 16.5%, Stamps 11.8%, Other 10.5%">
+        <div class="seg seg-sgst" style="width:36.4%;">36%</div>
+        <div class="seg seg-vat" style="width:24.8%;">25%</div>
+        <div class="seg seg-excise" style="width:16.5%;">16%</div>
+        <div class="seg seg-stamp" style="width:11.8%;">12%</div>
+        <div class="seg seg-other" style="width:10.5%;">10%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">7</span>
+        <span class="state-name">Rajasthan</span>
+        <span class="sotr-val">₹1.25 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Rajasthan: SGST 38.2%, Fuel/VAT 23.1%, Excise 14.8%, Stamps 10.2%, Other 13.7%">
+        <div class="seg seg-sgst" style="width:38.2%;">38%</div>
+        <div class="seg seg-vat" style="width:23.1%;">23%</div>
+        <div class="seg seg-excise" style="width:14.8%;">15%</div>
+        <div class="seg seg-stamp" style="width:10.2%;">10%</div>
+        <div class="seg seg-other" style="width:13.7%;">14%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">8</span>
+        <span class="state-name">West Bengal</span>
+        <span class="sotr-val">₹1.02 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="West Bengal: SGST 44.6%, Fuel/VAT 14.8%, Excise 19.4%, Stamps 9.6%, Other 11.6%">
+        <div class="seg seg-sgst" style="width:44.6%;">45%</div>
+        <div class="seg seg-vat" style="width:14.8%;">15%</div>
+        <div class="seg seg-excise" style="width:19.4%;">19%</div>
+        <div class="seg seg-stamp" style="width:9.6%;">10%</div>
+        <div class="seg seg-other" style="width:11.6%;">12%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">9</span>
+        <span class="state-name">Madhya Pradesh</span>
+        <span class="sotr-val">₹1.01 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Madhya Pradesh: SGST 37.5%, Fuel/VAT 22.4%, Excise 15.6%, Stamps 11.5%, Other 13.0%">
+        <div class="seg seg-sgst" style="width:37.5%;">38%</div>
+        <div class="seg seg-vat" style="width:22.4%;">22%</div>
+        <div class="seg seg-excise" style="width:15.6%;">16%</div>
+        <div class="seg seg-stamp" style="width:11.5%;">12%</div>
+        <div class="seg seg-other" style="width:13.0%;">13%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">10</span>
+        <span class="state-name">Haryana</span>
+        <span class="sotr-val">₹0.91 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Haryana: SGST 46.2%, Fuel/VAT 15.4%, Excise 14.2%, Stamps 13.8%, Other 10.4%">
+        <div class="seg seg-sgst" style="width:46.2%;">46%</div>
+        <div class="seg seg-vat" style="width:15.4%;">15%</div>
+        <div class="seg seg-excise" style="width:14.2%;">14%</div>
+        <div class="seg seg-stamp" style="width:13.8%;">14%</div>
+        <div class="seg seg-other" style="width:10.4%;">10%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">11</span>
+        <span class="state-name">Kerala</span>
+        <span class="sotr-val">₹0.85 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Kerala: SGST 41.0%, Fuel/VAT 32.8%, Excise 3.8%, Stamps 8.2%, Other 14.2%">
+        <div class="seg seg-sgst" style="width:41.0%;">41%</div>
+        <div class="seg seg-vat" style="width:32.8%;">33%</div>
+        <div class="seg seg-excise" style="width:3.8%;"></div>
+        <div class="seg seg-stamp" style="width:8.2%;"></div>
+        <div class="seg seg-other" style="width:14.2%;">14%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">12</span>
+        <span class="state-name">Andhra Pradesh</span>
+        <span class="sotr-val">₹0.96 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Andhra Pradesh: SGST 34.8%, Fuel/VAT 25.2%, Excise 18.4%, Stamps 9.8%, Other 11.8%">
+        <div class="seg seg-sgst" style="width:34.8%;">35%</div>
+        <div class="seg seg-vat" style="width:25.2%;">25%</div>
+        <div class="seg seg-excise" style="width:18.4%;">18%</div>
+        <div class="seg seg-stamp" style="width:9.8%;">10%</div>
+        <div class="seg seg-other" style="width:11.8%;">12%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">13</span>
+        <span class="state-name">Odisha</span>
+        <span class="sotr-val">₹0.61 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Odisha: SGST 42.8%, Fuel/VAT 21.6%, Excise 13.5%, Stamps 4.8%, Other 17.3%">
+        <div class="seg seg-sgst" style="width:42.8%;">43%</div>
+        <div class="seg seg-vat" style="width:21.6%;">22%</div>
+        <div class="seg seg-excise" style="width:13.5%;">14%</div>
+        <div class="seg seg-stamp" style="width:4.8%;"></div>
+        <div class="seg seg-other" style="width:17.3%;">17%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">14</span>
+        <span class="state-name">Punjab</span>
+        <span class="sotr-val">₹0.58 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Punjab: SGST 41.2%, Fuel/VAT 15.8%, Excise 19.5%, Stamps 9.4%, Other 14.1%">
+        <div class="seg seg-sgst" style="width:41.2%;">41%</div>
+        <div class="seg seg-vat" style="width:15.8%;">16%</div>
+        <div class="seg seg-excise" style="width:19.5%;">20%</div>
+        <div class="seg seg-stamp" style="width:9.4%;">9%</div>
+        <div class="seg seg-other" style="width:14.1%;">14%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">15</span>
+        <span class="state-name">Bihar</span>
+        <span class="sotr-val">₹0.56 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Bihar: SGST 49.4%, Fuel/VAT 19.8%, Excise 0.0%, Stamps 13.6%, Other 17.2%">
+        <div class="seg seg-sgst" style="width:49.4%;">49%</div>
+        <div class="seg seg-vat" style="width:19.8%;">20%</div>
+        <div class="seg seg-excise" style="width:0.0%;"></div>
+        <div class="seg seg-stamp" style="width:13.6%;">14%</div>
+        <div class="seg seg-other" style="width:17.2%;">17%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">16</span>
+        <span class="state-name">Chhattisgarh</span>
+        <span class="sotr-val">₹0.48 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Chhattisgarh: SGST 38.6%, Fuel/VAT 18.2%, Excise 22.4%, Stamps 6.5%, Other 14.3%">
+        <div class="seg seg-sgst" style="width:38.6%;">39%</div>
+        <div class="seg seg-vat" style="width:18.2%;">18%</div>
+        <div class="seg seg-excise" style="width:22.4%;">22%</div>
+        <div class="seg seg-stamp" style="width:6.5%;"></div>
+        <div class="seg seg-other" style="width:14.3%;">14%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">17</span>
+        <span class="state-name">Jharkhand</span>
+        <span class="sotr-val">₹0.36 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Jharkhand: SGST 43.5%, Fuel/VAT 21.4%, Excise 9.2%, Stamps 5.4%, Other 20.5%">
+        <div class="seg seg-sgst" style="width:43.5%;">44%</div>
+        <div class="seg seg-vat" style="width:21.4%;">21%</div>
+        <div class="seg seg-excise" style="width:9.2%;">9%</div>
+        <div class="seg seg-stamp" style="width:5.4%;"></div>
+        <div class="seg seg-other" style="width:20.5%;">20%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">18</span>
+        <span class="state-name">Assam</span>
+        <span class="sotr-val">₹0.33 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Assam: SGST 48.2%, Fuel/VAT 22.6%, Excise 11.4%, Stamps 3.2%, Other 14.6%">
+        <div class="seg seg-sgst" style="width:48.2%;">48%</div>
+        <div class="seg seg-vat" style="width:22.6%;">23%</div>
+        <div class="seg seg-excise" style="width:11.4%;">11%</div>
+        <div class="seg seg-stamp" style="width:3.2%;"></div>
+        <div class="seg seg-other" style="width:14.6%;">15%</div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">19</span>
+        <span class="state-name">Uttarakhand</span>
+        <span class="sotr-val">₹0.23 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Uttarakhand: SGST 45.4%, Fuel/VAT 13.8%, Excise 19.8%, Stamps 11.2%, Other 9.8%">
+        <div class="seg seg-sgst" style="width:45.4%;">45%</div>
+        <div class="seg seg-vat" style="width:13.8%;">14%</div>
+        <div class="seg seg-excise" style="width:19.8%;">20%</div>
+        <div class="seg seg-stamp" style="width:11.2%;">11%</div>
+        <div class="seg seg-other" style="width:9.8%;"></div>
+      </div>
+    </div>
+    
+    <div class="chart-row">
+      <div class="state-meta">
+        <span class="rank">20</span>
+        <span class="state-name">Goa</span>
+        <span class="sotr-val">₹0.09 Lakh Cr</span>
+      </div>
+      <div class="stacked-bar" title="Goa: SGST 51.2%, Fuel/VAT 18.4%, Excise 11.8%, Stamps 7.6%, Other 11.0%">
+        <div class="seg seg-sgst" style="width:51.2%;">51%</div>
+        <div class="seg seg-vat" style="width:18.4%;">18%</div>
+        <div class="seg seg-excise" style="width:11.8%;">12%</div>
+        <div class="seg seg-stamp" style="width:7.6%;"></div>
+        <div class="seg seg-other" style="width:11.0%;">11%</div>
+      </div>
+    </div>
+    
+
+      <div class="info-footer">
+        <span>Source: Reserve Bank of India (RBI) State Finances Report &amp; FY26 State Budgets</span>
+        <span>Data-Wise India</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Why India’s Tax Mix Looks Nothing Like America’s</h2>
+    <p class="body-text">
+      In the United States, property taxes are the largest tax source in 25 states (reaching 64% in New Hampshire), while states like California and New York rely heavily on state-level personal income taxes. Under India’s constitutional division of powers, however, <strong>state governments cannot levy personal or corporate income taxes</strong>, and property taxes are collected locally by municipal corporations (like BBMP or BMC) rather than state treasuries.
+    </p>
+    <p class="body-text">
+      Instead, Indian states fund schools, highways, and welfare schemes through <strong>States’ Own Tax Revenue (SOTR)</strong>—a basket dominated by indirect consumption taxes—alongside their share of central taxes recommended by the Finance Commission.
+    </p>
+
+    <div class="archetype-grid">
+      <div class="arch-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <h4>1. The SGST Consumption Engine</h4>
+        <p>Introduced in 2017, State GST accounts for ~42% of own-tax collections nationally. Consumer-heavy and service-led states like Maharashtra (₹3.54L Cr SOTR) and Karnataka (₹1.90L Cr) capture massive SGST from urban retail, IT, and manufacturing.</p>
+      </div>
+      <div class="arch-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+          <path d="M3 22V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M15 10h2a2 2 0 0 1 2 2v5a2 2 0 0 0 4 0v-7l-3-3"/><line x1="6" y1="9" x2="12" y2="9"/>
+        </svg>
+        <h4>2. The "Sin &amp; Fuel" Cushion</h4>
+        <p>Petrol, diesel, and alcohol were deliberately kept out of GST so states could retain fiscal autonomy. Tamil Nadu (33.4% VAT) and Kerala (32.8% VAT) rely heavily on fuel and liquor sales taxes, while UP (21.8%) and Chhattisgarh (22.4%) lead in state excise.</p>
+      </div>
+      <div class="arch-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <h4>3. The Urban Real Estate Multiplier</h4>
+        <p>Every apartment purchase or land transfer triggers state stamp duty and registration charges. Booming housing markets in Mumbai-Pune, Bengaluru, and Gurugram-Noida push stamp duties above 12%–15% of state tax revenue.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">The Outliers: Dry States and Resource Hubs</h2>
+    <p class="body-text">
+      Just as Delaware (corporate franchise taxes) and North Dakota (oil severance taxes) stand out in the U.S., policy choices create sharp outliers across India. <strong>Gujarat</strong> and <strong>Bihar</strong> enforce alcohol prohibition, forfeiting thousands of crores in annual excise revenue. Gujarat offsets this through its massive industrial SGST base (46.8%) and high fuel VAT (24.5%), whereas Bihar leans on SGST (49.4%) and central tax devolution.
+    </p>
+    <p class="body-text">
+      Meanwhile, mineral-rich states like <strong>Odisha</strong> and <strong>Jharkhand</strong> supplement their tax base with heavy non-tax mining royalties on iron ore and coal, reducing their dependence on urban stamp duties (under 5.5%).
+    </p>
+
+    <h2 class="section-title">Complete State-by-State Tax Breakdown</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>State</th>
+            <th>Est. Own Tax (SOTR)</th>
+            <th>SGST</th>
+            <th>Sales Tax / VAT</th>
+            <th>State Excise</th>
+            <th>Stamps &amp; Reg.</th>
+            <th>Vehicle &amp; Other</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>1</strong></td>
+      <td><strong>Maharashtra</strong></td>
+      <td>₹3.54 Lakh Cr</td>
+      <td><span class="badge-sgst">42.1%</span></td>
+      <td>17.8%</td>
+      <td>7.6%</td>
+      <td>15.8%</td>
+      <td>16.7%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>2</strong></td>
+      <td><strong>Uttar Pradesh</strong></td>
+      <td>₹2.62 Lakh Cr</td>
+      <td><span class="badge-sgst">41.5%</span></td>
+      <td>15.2%</td>
+      <td>21.8%</td>
+      <td>12.4%</td>
+      <td>9.1%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>3</strong></td>
+      <td><strong>Karnataka</strong></td>
+      <td>₹1.90 Lakh Cr</td>
+      <td><span class="badge-sgst">43.2%</span></td>
+      <td>13.5%</td>
+      <td>19.6%</td>
+      <td>12.8%</td>
+      <td>10.9%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>4</strong></td>
+      <td><strong>Tamil Nadu</strong></td>
+      <td>₹1.95 Lakh Cr</td>
+      <td><span class="badge-sgst">37.8%</span></td>
+      <td>33.4%</td>
+      <td>6.2%</td>
+      <td>11.4%</td>
+      <td>11.2%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>5</strong></td>
+      <td><strong>Gujarat</strong></td>
+      <td>₹1.52 Lakh Cr</td>
+      <td><span class="badge-sgst">46.8%</span></td>
+      <td>24.5%</td>
+      <td>0.2%</td>
+      <td>11.9%</td>
+      <td>16.6%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>6</strong></td>
+      <td><strong>Telangana</strong></td>
+      <td>₹1.38 Lakh Cr</td>
+      <td><span class="badge-sgst">36.4%</span></td>
+      <td>24.8%</td>
+      <td>16.5%</td>
+      <td>11.8%</td>
+      <td>10.5%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>7</strong></td>
+      <td><strong>Rajasthan</strong></td>
+      <td>₹1.25 Lakh Cr</td>
+      <td><span class="badge-sgst">38.2%</span></td>
+      <td>23.1%</td>
+      <td>14.8%</td>
+      <td>10.2%</td>
+      <td>13.7%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>8</strong></td>
+      <td><strong>West Bengal</strong></td>
+      <td>₹1.02 Lakh Cr</td>
+      <td><span class="badge-sgst">44.6%</span></td>
+      <td>14.8%</td>
+      <td>19.4%</td>
+      <td>9.6%</td>
+      <td>11.6%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>9</strong></td>
+      <td><strong>Madhya Pradesh</strong></td>
+      <td>₹1.01 Lakh Cr</td>
+      <td><span class="badge-sgst">37.5%</span></td>
+      <td>22.4%</td>
+      <td>15.6%</td>
+      <td>11.5%</td>
+      <td>13.0%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>10</strong></td>
+      <td><strong>Haryana</strong></td>
+      <td>₹0.91 Lakh Cr</td>
+      <td><span class="badge-sgst">46.2%</span></td>
+      <td>15.4%</td>
+      <td>14.2%</td>
+      <td>13.8%</td>
+      <td>10.4%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>11</strong></td>
+      <td><strong>Kerala</strong></td>
+      <td>₹0.85 Lakh Cr</td>
+      <td><span class="badge-sgst">41.0%</span></td>
+      <td>32.8%</td>
+      <td>3.8%</td>
+      <td>8.2%</td>
+      <td>14.2%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>12</strong></td>
+      <td><strong>Andhra Pradesh</strong></td>
+      <td>₹0.96 Lakh Cr</td>
+      <td><span class="badge-sgst">34.8%</span></td>
+      <td>25.2%</td>
+      <td>18.4%</td>
+      <td>9.8%</td>
+      <td>11.8%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>13</strong></td>
+      <td><strong>Odisha</strong></td>
+      <td>₹0.61 Lakh Cr</td>
+      <td><span class="badge-sgst">42.8%</span></td>
+      <td>21.6%</td>
+      <td>13.5%</td>
+      <td>4.8%</td>
+      <td>17.3%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>14</strong></td>
+      <td><strong>Punjab</strong></td>
+      <td>₹0.58 Lakh Cr</td>
+      <td><span class="badge-sgst">41.2%</span></td>
+      <td>15.8%</td>
+      <td>19.5%</td>
+      <td>9.4%</td>
+      <td>14.1%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>15</strong></td>
+      <td><strong>Bihar</strong></td>
+      <td>₹0.56 Lakh Cr</td>
+      <td><span class="badge-sgst">49.4%</span></td>
+      <td>19.8%</td>
+      <td>0.0%</td>
+      <td>13.6%</td>
+      <td>17.2%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>16</strong></td>
+      <td><strong>Chhattisgarh</strong></td>
+      <td>₹0.48 Lakh Cr</td>
+      <td><span class="badge-sgst">38.6%</span></td>
+      <td>18.2%</td>
+      <td>22.4%</td>
+      <td>6.5%</td>
+      <td>14.3%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>17</strong></td>
+      <td><strong>Jharkhand</strong></td>
+      <td>₹0.36 Lakh Cr</td>
+      <td><span class="badge-sgst">43.5%</span></td>
+      <td>21.4%</td>
+      <td>9.2%</td>
+      <td>5.4%</td>
+      <td>20.5%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>18</strong></td>
+      <td><strong>Assam</strong></td>
+      <td>₹0.33 Lakh Cr</td>
+      <td><span class="badge-sgst">48.2%</span></td>
+      <td>22.6%</td>
+      <td>11.4%</td>
+      <td>3.2%</td>
+      <td>14.6%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>19</strong></td>
+      <td><strong>Uttarakhand</strong></td>
+      <td>₹0.23 Lakh Cr</td>
+      <td><span class="badge-sgst">45.4%</span></td>
+      <td>13.8%</td>
+      <td>19.8%</td>
+      <td>11.2%</td>
+      <td>9.8%</td>
+    </tr>
+    
+    <tr>
+      <td><strong>20</strong></td>
+      <td><strong>Goa</strong></td>
+      <td>₹0.09 Lakh Cr</td>
+      <td><span class="badge-sgst">51.2%</span></td>
+      <td>18.4%</td>
+      <td>11.8%</td>
+      <td>7.6%</td>
+      <td>11.0%</td>
+    </tr>
+    
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottom-nav">
+      <a class="bottom-btn" href="index.html">← Back to All Data-Wise Stories</a>
+    </div>
+  </article>
+
+</body>
+</html>

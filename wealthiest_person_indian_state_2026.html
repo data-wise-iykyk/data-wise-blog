@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranked: The Wealthiest Person in Each Indian State (2026) | Data-Wise</title>
+  <meta name="description" content="From Mukesh Ambani in Maharashtra ($105B) to Savitri Jindal in Haryana and Azim Premji in Karnataka, explore India's richest person by state in 2026." />
+  <meta property="og:title" content="Ranked: The Wealthiest Person in Each Indian State (2026)" />
+  <meta property="og:description" content="How India's state-by-state billionaire map compares across Mumbai, Ahmedabad, Delhi-NCR, Bengaluru, and regional industrial hubs." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f5f7;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .top-nav {
+      background: #121418;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-bottom: 2px solid #f59e0b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .top-nav a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .top-nav span {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .container {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+    .article-header {
+      background: #ffffff;
+      padding: 36px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-bottom: 28px;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #fef3c7;
+      color: #b45309;
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.6px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.3rem;
+      line-height: 1.2;
+      margin: 14px 0 12px;
+      color: #111827;
+    }
+    .subtitle {
+      font-size: 1.12rem;
+      color: #4b5563;
+      margin: 0 0 18px;
+    }
+    .meta-line {
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 14px;
+    }
+    .takeaways {
+      background: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      padding: 22px 26px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+    }
+    .takeaways h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #92400e;
+    }
+    .takeaways ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .takeaways li {
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+    .infographic {
+      background: #121418;
+      color: #f9fafb;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      margin-bottom: 32px;
+    }
+    .info-header {
+      border-bottom: 1px solid #2d3139;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+    .info-header h2 {
+      margin: 0 0 6px;
+      font-size: 1.55rem;
+      color: #ffffff;
+    }
+    .info-header p {
+      margin: 0;
+      color: #9ca3af;
+      font-size: 0.92rem;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 22px;
+      font-size: 0.8rem;
+      color: #d1d5db;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .bar-item {
+      margin-bottom: 13px;
+    }
+    .bar-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+    .rank-badge {
+      background: #1f2937;
+      color: #9ca3af;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      min-width: 28px;
+      text-align: center;
+    }
+    .state-name {
+      font-weight: 700;
+      color: #ffffff;
+      min-width: 125px;
+    }
+    .person-name {
+      color: #9ca3af;
+      font-size: 0.84rem;
+    }
+    .bar-track {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #1b1e24;
+      border-radius: 6px;
+      padding: 3px;
+    }
+    .bar-fill {
+      height: 18px;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    .bar-val {
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: #f3f4f6;
+      white-space: nowrap;
+    }
+    .bar-val small {
+      color: #9ca3af;
+      font-weight: 400;
+    }
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .archetype-card {
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-top: 4px solid #f59e0b;
+    }
+    .archetype-card h4 {
+      margin: 10px 0 6px;
+      font-size: 1.05rem;
+    }
+    .archetype-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .editorial {
+      background: #ffffff;
+      padding: 34px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      margin-bottom: 32px;
+    }
+    .editorial h2 {
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+      margin-top: 26px;
+      margin-bottom: 10px;
+    }
+    .editorial h2:first-child {
+      margin-top: 0;
+    }
+    .table-wrap {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      overflow-x: auto;
+      margin-bottom: 32px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      background: #f9fafb;
+      font-weight: 700;
+      color: #374151;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      letter-spacing: 0.5px;
+    }
+    .pill {
+      border: 1px solid;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .footer-nav {
+      text-align: center;
+      padding: 24px 0 48px;
+    }
+    .footer-nav a {
+      display: inline-block;
+      background: #121418;
+      color: #f59e0b;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.7rem; }
+      .infographic, .article-header, .editorial { padding: 20px; }
+      .state-name { min-width: 98px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">← Data-Wise Home</a>
+    <span>Wealth &amp; Markets · India</span>
+  </nav>
+
+  <main class="container">
+    <header class="article-header">
+      <span class="category-tag">Billionaires &amp; Wealth · India</span>
+      <h1>Ranked: The Wealthiest Person in Each Indian State (2026)</h1>
+      <p class="subtitle">From Mukesh Ambani’s $105B Mumbai empire to regional industrial dynasties in Haryana, West Bengal, and Uttar Pradesh, see who tops the wealth chart across India.</p>
+      <div class="meta-line">Adapted from Visual Capitalist’s U.S. State Wealth Map · Data: Forbes India &amp; Hurun India Rich List (2026 Estimates)</div>
+    </header>
+
+    <section class="takeaways">
+      <h3>Key Takeaways</h3>
+      <ul>
+        <li><strong>Extreme Western Concentration:</strong> Maharashtra’s <strong>Mukesh Ambani ($105.0B)</strong> and Gujarat’s <strong>Gautam Adani ($84.5B)</strong> hold more combined wealth ($189.5B) than the top billionaires of the next 16 Indian states combined.</li>
+        <li><strong>India’s Richest Woman Tops Haryana:</strong> <strong>Savitri Jindal ($37.2B)</strong> leads Haryana (Hisar/NCR) through O.P. Jindal Group’s steel and power holdings, ranking fourth overall nationwide.</li>
+        <li><strong>Distinct Sectoral Geography:</strong> Tech wealth anchors <strong>Delhi-NCR (Shiv Nadar)</strong> and <strong>Karnataka (Azim Premji)</strong>, pharmaceuticals lead <strong>Telangana (Murali Divi)</strong>, and consumer goods power <strong>Uttar Pradesh (Muralidhar Gyanchandani)</strong> and <strong>Kerala (M.A. Yusuff Ali)</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="infographic" id="hero-infographic">
+      <div class="info-header">
+        <h2>India’s Richest Resident by State &amp; Union Territory (2026)</h2>
+        <p>Estimated individual/family net worth in USD billions and INR lakhs/crores, by primary residence or corporate headquarters</p>
+      </div>
+
+      <div class="legend">
+        <span><i class="dot" style="background:#f59e0b;"></i> Diversified Conglomerates</span>
+        <span><i class="dot" style="background:#3b82f6;"></i> IT &amp; Software</span>
+        <span><i class="dot" style="background:#10b981;"></i> Metals, Auto &amp; Infra</span>
+        <span><i class="dot" style="background:#8b5cf6;"></i> Pharmaceuticals</span>
+        <span><i class="dot" style="background:#ec4899;"></i> Retail &amp; FMCG</span>
+      </div>
+
+      
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#1</span>
+        <span class="state-name">Maharashtra</span>
+        <span class="person-name">Mukesh Ambani</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 100.0%; background: #f59e0b;"></div>
+        <span class="bar-val">$105.00B <small>(₹8.82L Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#2</span>
+        <span class="state-name">Gujarat</span>
+        <span class="person-name">Gautam Adani</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 80.5%; background: #f59e0b;"></div>
+        <span class="bar-val">$84.50B <small>(₹7.10L Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#3</span>
+        <span class="state-name">Delhi</span>
+        <span class="person-name">Shiv Nadar</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 37.9%; background: #3b82f6;"></div>
+        <span class="bar-val">$39.80B <small>(₹3.34L Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#4</span>
+        <span class="state-name">Haryana</span>
+        <span class="person-name">Savitri Jindal</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 35.4%; background: #10b981;"></div>
+        <span class="bar-val">$37.20B <small>(₹3.12L Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#5</span>
+        <span class="state-name">Karnataka</span>
+        <span class="person-name">Azim Premji</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 13.1%; background: #3b82f6;"></div>
+        <span class="bar-val">$13.80B <small>(₹1.16L Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#6</span>
+        <span class="state-name">Telangana</span>
+        <span class="person-name">Murali Divi</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 10.1%; background: #8b5cf6;"></div>
+        <span class="bar-val">$10.60B <small>(₹89,000 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#7</span>
+        <span class="state-name">West Bengal</span>
+        <span class="person-name">Benu Gopal Bangur</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 7.8%; background: #10b981;"></div>
+        <span class="bar-val">$8.20B <small>(₹68,900 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#8</span>
+        <span class="state-name">Kerala</span>
+        <span class="person-name">M.A. Yusuff Ali</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 7.0%; background: #ec4899;"></div>
+        <span class="bar-val">$7.30B <small>(₹61,300 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#9</span>
+        <span class="state-name">Tamil Nadu</span>
+        <span class="person-name">Venu Srinivasan</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 5.8%; background: #10b981;"></div>
+        <span class="bar-val">$6.10B <small>(₹51,200 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#10</span>
+        <span class="state-name">Uttar Pradesh</span>
+        <span class="person-name">Muralidhar Gyanchandani</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #ec4899;"></div>
+        <span class="bar-val">$3.80B <small>(₹31,900 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#11</span>
+        <span class="state-name">Andhra Pradesh</span>
+        <span class="person-name">G.M. Rao</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$3.50B <small>(₹29,400 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#12</span>
+        <span class="state-name">Rajasthan</span>
+        <span class="person-name">R.K. Damani (Roots) / Agarwal</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$2.90B <small>(₹24,400 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#13</span>
+        <span class="state-name">Punjab</span>
+        <span class="person-name">Rajinder Gupta</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$2.10B <small>(₹17,600 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#14</span>
+        <span class="state-name">Odisha</span>
+        <span class="person-name">Subroto Bagchi</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #3b82f6;"></div>
+        <span class="bar-val">$1.50B <small>(₹12,600 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#15</span>
+        <span class="state-name">Goa</span>
+        <span class="person-name">Shrinivas Dempo</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$1.20B <small>(₹10,100 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#16</span>
+        <span class="state-name">Jharkhand</span>
+        <span class="person-name">Rungta Family</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$1.10B <small>(₹9,240 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#17</span>
+        <span class="state-name">Madhya Pradesh</span>
+        <span class="person-name">Dinesh Patidar</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$0.92B <small>(₹7,730 Cr)</small></span>
+      </div>
+    </div>
+    
+    <div class="bar-item">
+      <div class="bar-meta">
+        <span class="rank-badge">#18</span>
+        <span class="state-name">Chhattisgarh</span>
+        <span class="person-name">Goel Family</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #10b981;"></div>
+        <span class="bar-val">$0.88B <small>(₹7,390 Cr)</small></span>
+      </div>
+    </div>
+    
+    </section>
+
+    <section class="cards-row">
+      <div class="archetype-card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><rect x="3" y="3" width="7" height="18"/><rect x="14" y="9" width="7" height="12"/></svg>
+        <h4>1. The Mumbai–Ahmedabad Duopoly</h4>
+        <p>Just as Elon Musk ($1T) and Jeff Bezos ($381B) tower over U.S. state rankings, Mukesh Ambani and Gautam Adani sit in a league of their own—each worth more than 2x India’s #3 billionaire.</p>
+      </div>
+      <div class="archetype-card" style="border-top-color:#3b82f6;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h4>2. Tech &amp; Pharma Hubs</h4>
+        <p>Unlike the U.S. where tech founders lead 8+ states, India’s tech billionaires cluster in Bengaluru (Azim Premji, N.R. Narayana Murthy, Nikhil Kamath) and Delhi-NCR (Shiv Nadar), while Hyderabad dominates pharma.</p>
+      </div>
+      <div class="archetype-card" style="border-top-color:#ec4899;">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <h4>3. Heartland Consumer Empires</h4>
+        <p>In populous non-metro states like Uttar Pradesh, Kanpur-based Muralidhar Gyanchandani built a $3.8B fortune selling Ghadi detergent to mass-market India—proving Tier-2 FMCG scale rivals tech.</p>
+      </div>
+    </section>
+
+    <article class="editorial">
+      <h2>How India’s Wealth Map Differs From the U.S.</h2>
+      <p>In Visual Capitalist’s 2026 U.S. ranking, billionaires lead 46 of 50 states, spread across unexpected hubs like Arkansas (Walmart), Nebraska (Berkshire Hathaway), and Louisiana (Raising Cane’s). In India, billionaire residency is far more concentrated: over 65% of India’s 300+ billionaires live in just three urban clusters—Mumbai, Delhi-NCR, and Bengaluru.</p>
+
+      <h2>The “Roots vs. Residence” Effect</h2>
+      <p>Several of India’s wealthiest industrialists hail from states like Rajasthan (Lakshmi Mittal, Kumar Mangalam Birla, Radhakishan Damani) or Bihar (Anil Agarwal), yet operate out of Mumbai, Delhi, or London. When ranked strictly by primary domestic residence or corporate headquarters, industrial heartlands like Chhattisgarh, Jharkhand, and Madhya Pradesh are led by regional steel, mining, and manufacturing families.</p>
+
+      <h2>Heavy Industry Still Rules Regional India</h2>
+      <p>Outside the IT corridors of Bengaluru and Noida, old-economy sectors generate the biggest state-level fortunes. Steel, cement, iron ore, and textiles crown the richest families in Haryana (Savitri Jindal), West Bengal (Benu Gopal Bangur), Punjab (Rajinder Gupta), Jharkhand (Rungta family), and Chhattisgarh (Goel family).</p>
+    </article>
+
+    <section class="table-wrap">
+      <h3 style="margin-top:0;">Complete State-by-State Wealth Table (2026)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>State / UT</th>
+            <th>Wealthiest Resident / Family</th>
+            <th>Net Worth (USD)</th>
+            <th>Net Worth (INR)</th>
+            <th>Primary Sector</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>1</strong></td>
+      <td><strong>Maharashtra</strong></td>
+      <td>Mukesh Ambani</td>
+      <td><strong>$105.00B</strong></td>
+      <td>₹8.82L Cr</td>
+      <td><span class="pill" style="border-color:#f59e0b; color:#f59e0b;">Energy, Telecom & Retail</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>2</strong></td>
+      <td><strong>Gujarat</strong></td>
+      <td>Gautam Adani</td>
+      <td><strong>$84.50B</strong></td>
+      <td>₹7.10L Cr</td>
+      <td><span class="pill" style="border-color:#f59e0b; color:#f59e0b;">Ports, Power & Green Energy</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>3</strong></td>
+      <td><strong>Delhi</strong></td>
+      <td>Shiv Nadar</td>
+      <td><strong>$39.80B</strong></td>
+      <td>₹3.34L Cr</td>
+      <td><span class="pill" style="border-color:#3b82f6; color:#3b82f6;">IT Services (HCL)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>4</strong></td>
+      <td><strong>Haryana</strong></td>
+      <td>Savitri Jindal</td>
+      <td><strong>$37.20B</strong></td>
+      <td>₹3.12L Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Steel & Infrastructure</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>5</strong></td>
+      <td><strong>Karnataka</strong></td>
+      <td>Azim Premji</td>
+      <td><strong>$13.80B</strong></td>
+      <td>₹1.16L Cr</td>
+      <td><span class="pill" style="border-color:#3b82f6; color:#3b82f6;">IT Services (Wipro)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>6</strong></td>
+      <td><strong>Telangana</strong></td>
+      <td>Murali Divi</td>
+      <td><strong>$10.60B</strong></td>
+      <td>₹89,000 Cr</td>
+      <td><span class="pill" style="border-color:#8b5cf6; color:#8b5cf6;">Pharmaceuticals (Divi's Labs)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>7</strong></td>
+      <td><strong>West Bengal</strong></td>
+      <td>Benu Gopal Bangur</td>
+      <td><strong>$8.20B</strong></td>
+      <td>₹68,900 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Cement (Shree Cement)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>8</strong></td>
+      <td><strong>Kerala</strong></td>
+      <td>M.A. Yusuff Ali</td>
+      <td><strong>$7.30B</strong></td>
+      <td>₹61,300 Cr</td>
+      <td><span class="pill" style="border-color:#ec4899; color:#ec4899;">Hypermarkets & Retail (LuLu)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>9</strong></td>
+      <td><strong>Tamil Nadu</strong></td>
+      <td>Venu Srinivasan</td>
+      <td><strong>$6.10B</strong></td>
+      <td>₹51,200 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Two-Wheelers (TVS Motor)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>10</strong></td>
+      <td><strong>Uttar Pradesh</strong></td>
+      <td>Muralidhar Gyanchandani</td>
+      <td><strong>$3.80B</strong></td>
+      <td>₹31,900 Cr</td>
+      <td><span class="pill" style="border-color:#ec4899; color:#ec4899;">FMCG & Detergents (Ghadi)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>11</strong></td>
+      <td><strong>Andhra Pradesh</strong></td>
+      <td>G.M. Rao</td>
+      <td><strong>$3.50B</strong></td>
+      <td>₹29,400 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Airports & Energy (GMR)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>12</strong></td>
+      <td><strong>Rajasthan</strong></td>
+      <td>R.K. Damani (Roots) / Agarwal</td>
+      <td><strong>$2.90B</strong></td>
+      <td>₹24,400 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Mining & Marble</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>13</strong></td>
+      <td><strong>Punjab</strong></td>
+      <td>Rajinder Gupta</td>
+      <td><strong>$2.10B</strong></td>
+      <td>₹17,600 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Textiles & Paper (Trident)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>14</strong></td>
+      <td><strong>Odisha</strong></td>
+      <td>Subroto Bagchi</td>
+      <td><strong>$1.50B</strong></td>
+      <td>₹12,600 Cr</td>
+      <td><span class="pill" style="border-color:#3b82f6; color:#3b82f6;">IT Services (Mindtree)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>15</strong></td>
+      <td><strong>Goa</strong></td>
+      <td>Shrinivas Dempo</td>
+      <td><strong>$1.20B</strong></td>
+      <td>₹10,100 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Mining & Marine</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>16</strong></td>
+      <td><strong>Jharkhand</strong></td>
+      <td>Rungta Family</td>
+      <td><strong>$1.10B</strong></td>
+      <td>₹9,240 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Iron Ore & Steel</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>17</strong></td>
+      <td><strong>Madhya Pradesh</strong></td>
+      <td>Dinesh Patidar</td>
+      <td><strong>$0.92B</strong></td>
+      <td>₹7,730 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Pumps & Motors (Shakti)</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>18</strong></td>
+      <td><strong>Chhattisgarh</strong></td>
+      <td>Goel Family</td>
+      <td><strong>$0.88B</strong></td>
+      <td>₹7,390 Cr</td>
+      <td><span class="pill" style="border-color:#10b981; color:#10b981;">Steel & Power (Hira Group)</span></td>
+    </tr>
+    
+        </tbody>
+      </table>
+    </section>
+
+    <div class="footer-nav">
+      <a href="index.html">← Back to All Data-Wise Stories</a>
+    </div>
+  </main>
+</body>
+</html>
