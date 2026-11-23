@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranked: The 20 Most Visited Websites in India (2026) | Data-Wise</title>
+  <meta name="description" content="Adapting Visual Capitalist's 2026 global web traffic ranking for India: Google and YouTube lead with 7.3B visits, while ChatGPT, Flipkart, Hotstar, and Cricbuzz reshape the top 20." />
+  <meta property="og:title" content="Ranked: The 20 Most Visited Websites in India (2026)" />
+  <meta property="og:description" content="How India's web traffic compares to the global Top 40: ChatGPT hits #4, Instagram doubles Facebook, and local giants like Flipkart, Hotstar & Cricbuzz break in." />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f5f7;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .top-nav {
+      background: #121418;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-bottom: 1px solid #262a33;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .top-nav a {
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    .top-nav span { color: #9ca3af; font-size: 0.8rem; }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.35rem;
+      line-height: 1.18;
+      margin: 0 0 14px;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+    }
+    .deck {
+      font-size: 1.15rem;
+      color: #4b5563;
+      margin: 0 0 18px;
+      line-height: 1.5;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .takeaways {
+      background: #ffffff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .takeaways h2 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #1e3a8a;
+    }
+    .takeaways ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .takeaways li {
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+    .takeaways li:last-child { margin-bottom: 0; }
+
+    /* Hero Dark Mode Infographic */
+    .infographic-card {
+      background: #121418;
+      color: #f9fafb;
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 32px 0;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+    .info-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid #262b34;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+    .info-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 0 0 6px;
+      color: #ffffff;
+    }
+    .info-subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin: 0;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.78rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1c2026;
+      padding: 4px 10px;
+      border-radius: 999px;
+      color: #d1d5db;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 36px 210px 1fr;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+    .rank-num {
+      color: #9ca3af;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .site-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .site-name {
+      font-weight: 600;
+      color: #f3f4f6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .site-badge {
+      font-size: 0.66rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .bar-track {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #1a1d24;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    .bar-fill {
+      height: 16px;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .bar-val {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .info-footer {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid #262b34;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Secondary Visuals */
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+      margin: 28px 0;
+    }
+    .v-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-top: 4px solid #121418;
+    }
+    .v-card h3 {
+      margin: 10px 0 6px;
+      font-size: 1.05rem;
+      color: #111827;
+    }
+    .v-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .big-stat {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.1;
+    }
+
+    /* Editorial Sections */
+    .article-body h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      margin: 32px 0 12px;
+      color: #0f172a;
+    }
+    .article-body p {
+      margin: 0 0 16px;
+      color: #374151;
+      font-size: 1.02rem;
+    }
+
+    /* Data Table */
+    .table-wrap {
+      background: #ffffff;
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      margin-top: 28px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #121418;
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #1f2937;
+    }
+    tr:hover td { background: #f9fafb; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .bottom-nav {
+      margin-top: 44px;
+      text-align: center;
+    }
+    .bottom-btn {
+      display: inline-block;
+      background: #121418;
+      color: #f59e0b;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+    }
+    .bottom-btn:hover { background: #1f242d; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .bar-row { grid-template-columns: 30px 145px 1fr; gap: 6px; font-size: 0.8rem; }
+      .site-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html">← Data-Wise Home</a>
+    <span>India Edition · Adapted from Visual Capitalist</span>
+  </nav>
+
+  <main class="container">
+    <span class="category-tag">Technology · India Digital Economy</span>
+    <h1>Ranked: The 20 Most Visited Websites in India (2026)</h1>
+    <p class="deck">While Google and YouTube command 7.32 billion monthly visits in India, local giants like Flipkart, Hotstar, and Cricbuzz—and AI tools like ChatGPT and Claude—reshape the rankings compared to the global Top 40.</p>
+    <div class="meta">Published November 23, 2026 · Data Source: Semrush Traffic Analytics (Sept–Oct 2026 India Web Sessions)</div>
+
+    <section class="takeaways">
+      <h2>Key Takeaways: India vs. The World</h2>
+      <ul>
+        <li><strong>Alphabet's Duopoly Holds Firm:</strong> <code>google.com</code> (4.53B) and <code>youtube.com</code> (2.79B) generate <strong>7.32 billion monthly visits</strong> in India—nearly 2.3x the combined traffic of the next 18 websites on the list.</li>
+        <li><strong>ChatGPT Outranks WhatsApp Web &amp; Facebook:</strong> Matching its #4 global rank, <code>chatgpt.com</code> draws <strong>538.3 million visits</strong> in India, while developer-favorite <code>claude.ai</code> jumps six spots higher than its global rank to #15 (134.3M).</li>
+        <li><strong>Instagram Doubles Facebook:</strong> Globally, Facebook (#3) beats Instagram (#5) nearly 2-to-1. In India, the script flips completely: Instagram (#3, 621M) attracts nearly double Facebook's traffic (#6, 313.3M).</li>
+        <li><strong>Five Local &amp; Cricket Powerhouses Break In:</strong> <code>amazon.in</code> (#7), <code>flipkart.com</code> (#8), <code>hotstar.com</code> (#10), <code>indiatimes.com</code> (#13), and <code>cricbuzz.com</code> (#17) replace global staples like TikTok (banned in India) and Temu.</li>
+      </ul>
+    </section>
+
+    <section class="infographic-card" id="hero-infographic">
+      <div class="info-header">
+        <div>
+          <h2 class="info-title">Top 20 Most Visited Websites in India (2026)</h2>
+          <p class="info-subtitle">Estimated monthly desktop &amp; mobile web visits in India (Sept–Oct 2026, Semrush)</p>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#3b82f6;"></span>Search</div>
+        <div class="legend-item"><span class="dot" style="background:#ef4444;"></span>Video &amp; OTT</div>
+        <div class="legend-item"><span class="dot" style="background:#ec4899;"></span>Social &amp; Messaging</div>
+        <div class="legend-item"><span class="dot" style="background:#10b981;"></span>Generative AI</div>
+        <div class="legend-item"><span class="dot" style="background:#f59e0b;"></span>E-Commerce</div>
+        <div class="legend-item"><span class="dot" style="background:#8b5cf6;"></span>News &amp; Cricket</div>
+        <div class="legend-item"><span class="dot" style="background:#06b6d4;"></span>Reference &amp; Dev</div>
+      </div>
+
+      
+    <div class="bar-row">
+      <div class="rank-num">#1</div>
+      <div class="site-info">
+        <span class="site-name">google.com</span>
+        <span class="site-badge" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f655;">Search</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:100.00%; background:#3b82f6;"></div>
+        <span class="bar-val">4.53B</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#2</div>
+      <div class="site-info">
+        <span class="site-name">youtube.com</span>
+        <span class="site-badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">Video & OTT</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:61.59%; background:#ef4444;"></div>
+        <span class="bar-val">2.79B</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#3</div>
+      <div class="site-info">
+        <span class="site-name">instagram.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:13.71%; background:#ec4899;"></div>
+        <span class="bar-val">621.0M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#4</div>
+      <div class="site-info">
+        <span class="site-name">chatgpt.com</span>
+        <span class="site-badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">AI</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:11.88%; background:#10b981;"></div>
+        <span class="bar-val">538.3M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#5</div>
+      <div class="site-info">
+        <span class="site-name">whatsapp.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:11.02%; background:#ec4899;"></div>
+        <span class="bar-val">499.1M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#6</div>
+      <div class="site-info">
+        <span class="site-name">facebook.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:6.92%; background:#ec4899;"></div>
+        <span class="bar-val">313.3M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#7</div>
+      <div class="site-info">
+        <span class="site-name">amazon.in</span>
+        <span class="site-badge" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b55;">E-Commerce</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:5.89%; background:#f59e0b;"></div>
+        <span class="bar-val">266.7M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#8</div>
+      <div class="site-info">
+        <span class="site-name">flipkart.com</span>
+        <span class="site-badge" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b55;">E-Commerce</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:4.43%; background:#f59e0b;"></div>
+        <span class="bar-val">200.8M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#9</div>
+      <div class="site-info">
+        <span class="site-name">reddit.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:4.18%; background:#ec4899;"></div>
+        <span class="bar-val">189.3M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#10</div>
+      <div class="site-info">
+        <span class="site-name">hotstar.com</span>
+        <span class="site-badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">Video & OTT</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:4.01%; background:#ef4444;"></div>
+        <span class="bar-val">181.5M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#11</div>
+      <div class="site-info">
+        <span class="site-name">linkedin.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:3.68%; background:#ec4899;"></div>
+        <span class="bar-val">166.9M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#12</div>
+      <div class="site-info">
+        <span class="site-name">x.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:3.41%; background:#ec4899;"></div>
+        <span class="bar-val">154.4M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#13</div>
+      <div class="site-info">
+        <span class="site-name">indiatimes.com</span>
+        <span class="site-badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">News & Sports</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:3.11%; background:#8b5cf6;"></div>
+        <span class="bar-val">140.8M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#14</div>
+      <div class="site-info">
+        <span class="site-name">wikipedia.org</span>
+        <span class="site-badge" style="background:#06b6d422; color:#06b6d4; border:1px solid #06b6d455;">Reference & Dev</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:3.04%; background:#06b6d4;"></div>
+        <span class="bar-val">137.9M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#15</div>
+      <div class="site-info">
+        <span class="site-name">claude.ai</span>
+        <span class="site-badge" style="background:#10b98122; color:#10b981; border:1px solid #10b98155;">AI</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.96%; background:#10b981;"></div>
+        <span class="bar-val">134.3M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#16</div>
+      <div class="site-info">
+        <span class="site-name">pinterest.com</span>
+        <span class="site-badge" style="background:#ec489922; color:#ec4899; border:1px solid #ec489955;">Social</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.87%; background:#ec4899;"></div>
+        <span class="bar-val">130.0M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#17</div>
+      <div class="site-info">
+        <span class="site-name">cricbuzz.com</span>
+        <span class="site-badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">News & Sports</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.53%; background:#8b5cf6;"></div>
+        <span class="bar-val">114.6M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#18</div>
+      <div class="site-info">
+        <span class="site-name">github.com</span>
+        <span class="site-badge" style="background:#06b6d422; color:#06b6d4; border:1px solid #06b6d455;">Reference & Dev</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.51%; background:#06b6d4;"></div>
+        <span class="bar-val">113.5M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#19</div>
+      <div class="site-info">
+        <span class="site-name">netflix.com</span>
+        <span class="site-badge" style="background:#ef444422; color:#ef4444; border:1px solid #ef444455;">Video & OTT</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.27%; background:#ef4444;"></div>
+        <span class="bar-val">102.9M</span>
+      </div>
+    </div>
+    
+    <div class="bar-row">
+      <div class="rank-num">#20</div>
+      <div class="site-info">
+        <span class="site-name">msn.com</span>
+        <span class="site-badge" style="background:#8b5cf622; color:#8b5cf6; border:1px solid #8b5cf655;">News & Sports</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:2.24%; background:#8b5cf6;"></div>
+        <span class="bar-val">101.5M</span>
+      </div>
+    </div>
+    
+
+      <div class="info-footer">
+        <span>*Excludes standalone mobile app usage (web browser sessions only). Adult domains excluded from main chart.</span>
+        <span>Data-Wise · India</span>
+      </div>
+    </section>
+
+    <section class="visual-grid">
+      <div class="v-card" style="border-top-color:#3b82f6;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="big-stat">69.3%</div>
+        <h3>Alphabet's Traffic Share</h3>
+        <p>Google and YouTube account for 7.32B of the 10.57B total monthly visits across India's top 20 sites.</p>
+      </div>
+      <div class="v-card" style="border-top-color:#10b981;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2V6a4 4 0 0 1 4-4z"/></svg>
+        <div class="big-stat">672.6M</div>
+        <h3>AI Web Visits in Top 20</h3>
+        <p>ChatGPT (#4) and Claude (#15) combined pull more Indian web traffic than Facebook and X put together.</p>
+      </div>
+      <div class="v-card" style="border-top-color:#f59e0b;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <div class="big-stat">467.5M</div>
+        <h3>E-Commerce Duopoly</h3>
+        <p>Amazon.in (266.7M) and Flipkart (200.8M) rank #7 and #8—neither appears in the global Top 40.</p>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <h2>1. How India's Web Habits Diverge From the Global Top 40</h2>
+      <p>In Visual Capitalist's global ranking of the 40 most visited websites in 2026, U.S. and global portals like <code>amazon.com</code> (#13), <code>tiktok.com</code> (#11), and <code>temu.com</code> (#31) command billions of sessions. In India, regulatory bans (TikTok and Temu) and localized domains completely reshape the top tier.</p>
+      <p>Instead of <code>amazon.com</code>, Indian shoppers flock to <strong>Amazon India (<code>amazon.in</code>)</strong> at #7 with 266.7 million monthly visits, closely followed by homegrown rival <strong>Flipkart (<code>flipkart.com</code>)</strong> at #8 with 200.8 million visits. Even though the vast majority of Indian e-commerce happens inside mobile apps, browser traffic alone puts both retailers inside India's top 10 websites.</p>
+
+      <h2>2. India Is a Disproportionate Growth Engine for AI &amp; Developers</h2>
+      <p>Globally, ChatGPT ranks #4 with 8.23 billion monthly visits—and India contributes roughly <strong>6.5% (538.3 million visits)</strong> of that total, making it the fourth most visited website in the country ahead of WhatsApp Web and Facebook.</p>
+      <p>Even more striking is India's over-indexing on developer and productivity tools. <strong>Claude (<code>claude.ai</code>)</strong> ranks #21 globally, but climbs six spots to <strong>#15 in India</strong> (134.3M visits, or 8.5% of its global traffic). Similarly, <strong>GitHub (#18, 113.5M)</strong> and <strong>LinkedIn (#11, 166.9M)</strong> each account for roughly 8% to 9% of their entire global web traffic from India alone.</p>
+
+      <h2>3. Cricket and Local OTT Beat Global Streaming</h2>
+      <p>While <code>netflix.com</code> (#25 globally) draws a respectable 102.9 million monthly web visits in India (#19), it trails <strong>Hotstar (<code>hotstar.com</code>)</strong> at #10 (181.5M visits), which thrives on live cricket and regional entertainment. Meanwhile, <strong>Cricbuzz (<code>cricbuzz.com</code>)</strong> surges into the #17 spot with 114.6 million visits—proof that live ball-by-ball cricket scores remain one of the most resilient web habits in India.</p>
+
+      <h2>Complete India Website Traffic Data (2026)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>India Rank</th>
+              <th>Website</th>
+              <th>Category</th>
+              <th class="num">India Monthly Visits</th>
+              <th class="num">Global Rank</th>
+              <th>India vs. Global Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+    <tr>
+      <td><strong>#1</strong></td>
+      <td><strong>google.com</strong></td>
+      <td><span class="pill" style="background:#3b82f618; color:#3b82f6;">Search</span></td>
+      <td class="num"><strong>4.53B</strong></td>
+      <td class="num">#1</td>
+      <td>4.2% of Google's 108.9B global visits</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#2</strong></td>
+      <td><strong>youtube.com</strong></td>
+      <td><span class="pill" style="background:#ef444418; color:#ef4444;">Video & OTT</span></td>
+      <td class="num"><strong>2.79B</strong></td>
+      <td class="num">#2</td>
+      <td>4.7% of YouTube's 60.0B global visits</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#3</strong></td>
+      <td><strong>instagram.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>621.0M</strong></td>
+      <td class="num">#5</td>
+      <td>Beats Facebook by ~2x in India (9.1% of global share)</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#4</strong></td>
+      <td><strong>chatgpt.com</strong></td>
+      <td><span class="pill" style="background:#10b98118; color:#10b981;">AI</span></td>
+      <td class="num"><strong>538.3M</strong></td>
+      <td class="num">#4</td>
+      <td>6.5% of global traffic; outranks WhatsApp & Facebook</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#5</strong></td>
+      <td><strong>whatsapp.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>499.1M</strong></td>
+      <td class="num">#7</td>
+      <td>11.7% of global WhatsApp Web visits come from India</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#6</strong></td>
+      <td><strong>facebook.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>313.3M</strong></td>
+      <td class="num">#3</td>
+      <td>Ranks #3 globally, but drops to #6 in India</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#7</strong></td>
+      <td><strong>amazon.in</strong></td>
+      <td><span class="pill" style="background:#f59e0b18; color:#f59e0b;">E-Commerce</span></td>
+      <td class="num"><strong>266.7M</strong></td>
+      <td class="num">N/A*</td>
+      <td>Replaces global amazon.com (#13) as top shopping site</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#8</strong></td>
+      <td><strong>flipkart.com</strong></td>
+      <td><span class="pill" style="background:#f59e0b18; color:#f59e0b;">E-Commerce</span></td>
+      <td class="num"><strong>200.8M</strong></td>
+      <td class="num">N/A*</td>
+      <td>Homegrown e-commerce giant; not in global Top 40</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#9</strong></td>
+      <td><strong>reddit.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>189.3M</strong></td>
+      <td class="num">#6</td>
+      <td>Strong urban & tech community adoption</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#10</strong></td>
+      <td><strong>hotstar.com</strong></td>
+      <td><span class="pill" style="background:#ef444418; color:#ef4444;">Video & OTT</span></td>
+      <td class="num"><strong>181.5M</strong></td>
+      <td class="num">N/A*</td>
+      <td>Outranks Netflix (102.9M) in India via live sports & TV</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#11</strong></td>
+      <td><strong>linkedin.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>166.9M</strong></td>
+      <td class="num">#17</td>
+      <td>8.8% of global traffic; punches 6 spots above global rank</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#12</strong></td>
+      <td><strong>x.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>154.4M</strong></td>
+      <td class="num">#8</td>
+      <td>Major hub for Indian news, politics, and cricket discourse</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#13</strong></td>
+      <td><strong>indiatimes.com</strong></td>
+      <td><span class="pill" style="background:#8b5cf618; color:#8b5cf6;">News & Sports</span></td>
+      <td class="num"><strong>140.8M</strong></td>
+      <td class="num">N/A*</td>
+      <td>India's #1 digital news network; absent from global Top 40</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#14</strong></td>
+      <td><strong>wikipedia.org</strong></td>
+      <td><span class="pill" style="background:#06b6d418; color:#06b6d4;">Reference & Dev</span></td>
+      <td class="num"><strong>137.9M</strong></td>
+      <td class="num">#9</td>
+      <td>Core reference hub across English and Indian languages</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#15</strong></td>
+      <td><strong>claude.ai</strong></td>
+      <td><span class="pill" style="background:#10b98118; color:#10b981;">AI</span></td>
+      <td class="num"><strong>134.3M</strong></td>
+      <td class="num">#21</td>
+      <td>8.5% of global traffic; surges to #15 in India's dev ecosystem</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#16</strong></td>
+      <td><strong>pinterest.com</strong></td>
+      <td><span class="pill" style="background:#ec489918; color:#ec4899;">Social</span></td>
+      <td class="num"><strong>130.0M</strong></td>
+      <td class="num">#22</td>
+      <td>8.7% of global visits; popular for fashion, decor & weddings</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#17</strong></td>
+      <td><strong>cricbuzz.com</strong></td>
+      <td><span class="pill" style="background:#8b5cf618; color:#8b5cf6;">News & Sports</span></td>
+      <td class="num"><strong>114.6M</strong></td>
+      <td class="num">N/A*</td>
+      <td>Up +44.2% MoM; cricket's undisputed web destination</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#18</strong></td>
+      <td><strong>github.com</strong></td>
+      <td><span class="pill" style="background:#06b6d418; color:#06b6d4;">Reference & Dev</span></td>
+      <td class="num"><strong>113.5M</strong></td>
+      <td class="num">#23</td>
+      <td>7.9% of global traffic; reflects India's massive developer base</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#19</strong></td>
+      <td><strong>netflix.com</strong></td>
+      <td><span class="pill" style="background:#ef444418; color:#ef4444;">Video & OTT</span></td>
+      <td class="num"><strong>102.9M</strong></td>
+      <td class="num">#25</td>
+      <td>7.5% of global traffic; trails Hotstar on web sessions</td>
+    </tr>
+    
+    <tr>
+      <td><strong>#20</strong></td>
+      <td><strong>msn.com</strong></td>
+      <td><span class="pill" style="background:#8b5cf618; color:#8b5cf6;">News & Sports</span></td>
+      <td class="num"><strong>101.5M</strong></td>
+      <td class="num">#19</td>
+      <td>98% desktop traffic driven by default Windows/Edge browsers</td>
+    </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <div class="bottom-nav">
+      <a class="bottom-btn" href="index.html">← Back to All Data-Wise Stories</a>
+    </div>
+  </main>
+
+</body>
+</html>
